@@ -4,6 +4,7 @@ define('DS18B20_LOCATION', '/sys/bus/w1/devices/10-000800ee70d8/w1_slave');
 
 //Set content type
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 
 //Response array and shorthand for request
 $response = array();

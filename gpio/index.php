@@ -5,6 +5,7 @@ define('GPIO_LOCATION', '/usr/local/bin/gpio');
 
 //Set content type
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 
 //Response array and shorthand for request
 $response = array();
