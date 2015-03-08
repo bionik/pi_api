@@ -19,15 +19,15 @@ if(isset($r) && isset($r['a'])){
       $stream = escapeshellcmd($temp[0]);
 
       //Kill mplayer(s)
-      shell_exec('sudo -u pi killall -u pi mplayer'));
+      shell_exec('sudo -u pi killall -u pi mplayer');
 
       //Play stream
-      shell_exec('sudo -u pi nohup mplayer -slave > /dev/null 2>&1 &'));
+      shell_exec('sudo -u pi nohup mplayer -slave > /dev/null 2>&1 &');
 
       $response['status'] = 'OK';
 
     } else if($a == 'stopStream'){
-      shell_exec('sudo -u pi killall -u pi mplayer'));
+      shell_exec('sudo -u pi killall -u pi mplayer');
       $response['status'] = 'OK';
 
     }
