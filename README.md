@@ -22,3 +22,15 @@ Example query: http://localhost/temp/?a=getTemp
   "data": 18.75
 }
 ```
+
+## stream
+For playing a web radio stream using mplayer. Responds in json.
+
+Example query: http://localhost/stream/?a=playStream&stream=http://nectarine.from-de.com/necta192
+```
+{
+  "status": "OK"
+}
+```
+
+
