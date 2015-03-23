@@ -33,4 +33,64 @@ Example query: http://localhost/stream/?a=playStream&stream=http://nectarine.fro
 }
 ```
 
+## folistop
+For getting bus stop timetables from föli.fi. Respinds in json.
 
+Example query: http://localhost/folistop/?a=getStop&stop=123
+```
+{
+   "status":"OK",
+   "data":[
+      {
+         "time":"2 min",
+         "line":"2A",
+         "dest":"Kohmo"
+      },
+      {
+         "time":"14:42",
+         "line":"2",
+         "dest":"Kohmo"
+      },
+      {
+         "time":"14:44",
+         "line":"P2",
+         "dest":"Huhkola"
+      },
+      {
+         "time":"14:52",
+         "line":"2A",
+         "dest":"Kohmo"
+      },
+      {
+         "time":"15:00",
+         "line":"P2",
+         "dest":"Kauppatori"
+      },
+      {
+         "time":"15:02",
+         "line":"2",
+         "dest":"Kohmo"
+      },
+      {
+         "time":"15:12",
+         "line":"2A",
+         "dest":"Kohmo"
+      },
+      {
+         "time":"15:22",
+         "line":"2",
+         "dest":"Kohmo"
+      },
+      {
+         "time":"15:32",
+         "line":"2A",
+         "dest":"Kohmo"
+      },
+      {
+         "time":"15:42",
+         "line":"2",
+         "dest":"Kohmo"
+      }
+   ]
+}
+```
