@@ -16,9 +16,8 @@ if(isset($r) && isset($r['a'])){
 
     //getTemp action
     if($a == 'getHumidity'){
-        die('sudo READER_LOCATION');
 
-        $raw_data = shell_exec('sudo READER_LOCATION');
+        $raw_data = shell_exec('sudo '.READER_LOCATION);
         if($raw_data !== false && $raw_data !== ''){
 
           //Split lines
