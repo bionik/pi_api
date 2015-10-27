@@ -27,7 +27,7 @@ if(isset($r) && isset($r['a'])){
             //Set response
             $data = $temp[0];
             $response['status'] = 'OK';
-            $response['data'] = $data;
+            $response['data'] = floatval($data);
 
           }
         }
