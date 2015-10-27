@@ -22,10 +22,10 @@ if(isset($r) && isset($r['a'])){
 
           //Split lines
           $temp = explode("\n", $raw_data);
-          if(isset($temp[1])){
+          if(isset($temp[0])){
 
             //Set response
-            $data = $temp[1];
+            $data = $temp[0];
             $response['status'] = 'OK';
             $response['data'] = $data;
 
