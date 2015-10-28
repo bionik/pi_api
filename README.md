@@ -23,6 +23,17 @@ Example query: http://localhost/temp/?a=getTemp
 }
 ```
 
+## humidity
+For reading DHT11 sensor over http. Uses a python script. Responds in json.
+
+Example query: http://localhost/humidity/?a=getHumidity
+```
+{
+  "status": "OK",
+  "data": 45
+}
+```
+
 ## stream
 For playing a web radio stream using mplayer. Responds in json.
 
