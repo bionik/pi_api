@@ -51,6 +51,7 @@ Example query: http://localhost/folistop/?a=getStop&stop=123
 ```
 {
    "status":"OK",
+   "stop":"Polttohautaamo",
    "data":[
       {
          "time":"2 min",
