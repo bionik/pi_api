@@ -22,7 +22,7 @@ if(isset($r) && isset($r['a'])){
       shell_exec('sudo -u pi killall -u pi mplayer');
 
       //Play stream
-      shell_exec('sudo -u pi nohup mplayer -slave '.$stream.' > /dev/null 2>&1 &');
+      shell_exec('sudo -u pi nohup mplayer -slave -playlist '.$stream.' > /dev/null 2>&1 &');
 
       $response['status'] = 'OK';
 
