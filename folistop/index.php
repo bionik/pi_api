@@ -29,6 +29,8 @@ if(isset($r) && isset($r['a'])){
         $data = array();
         $i = 0;
 
+        $stop_name = trim(str_replace(array(chr(194).chr(160), "&nbsp;"), '', strip_tags(pq('#stopname')->html())));
+
         foreach(pq('table.deptable tr') as $row) {
 
             //Skip first
@@ -53,6 +55,7 @@ if(isset($r) && isset($r['a'])){
             //Set response
             $response['status'] = 'OK';
             $response['data'] = $data;
+            $response['stop'] = $stop_name;
         } else {
             $response['status'] = 'FAIL';
             $response['message'] = 'FETCH_FAILED';
