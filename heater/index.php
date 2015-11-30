@@ -1,6 +1,6 @@
 <?php
 # Controls heater
-define('HEATER_CLIENT_LOCATION', '/usr/local/bin/gpio');
+define('HEATER_CLIENT_LOCATION', '/home/late/dev/heater/client.py');
 
 //Set content type
 header('Content-Type: application/json');
@@ -18,13 +18,13 @@ if(isset($r) && isset($r['a'])){
     if($a == 'startHeater'){
 
       //Start heater
-      shell_exec(HEATER_CLIENT_LOCATION.' on');
+      shell_exec('python '.HEATER_CLIENT_LOCATION.' on');
       $response['status'] = 'OK';
 
     } else if($a == 'stopHeater'){
 
       //Stop heater
-      shell_exec(HEATER_CLIENT_LOCATION.' off');
+      shell_exec('python '.HEATER_CLIENT_LOCATION.' off');
       $response['status'] = 'OK';
 
     }
