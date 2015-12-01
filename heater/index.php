@@ -1,7 +1,7 @@
 <?php
 # Controls heater
 define('HEATER_CLIENT_LOCATION', '/home/late/dev/heater/client.py');
-define('STATUS_FILE_LOCATION', '/home/late/dev/heater/status.txt')
+define('STATUS_FILE_LOCATION', '/home/late/dev/heater/status.txt');
 
 //Set content type
 header('Content-Type: application/json');
