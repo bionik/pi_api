@@ -1,6 +1,7 @@
 <?php
 # Controls heater
 define('HEATER_CLIENT_LOCATION', '/home/late/dev/heater/client.py');
+define('STATUS_FILE_LOCATION', '/home/late/dev/heater/status.txt')
 
 //Set content type
 header('Content-Type: application/json');
@@ -26,6 +27,24 @@ if(isset($r) && isset($r['a'])){
       //Stop heater
       shell_exec('python '.HEATER_CLIENT_LOCATION.' off');
       $response['status'] = 'OK';
+
+    } else if($a == 'getStatus') {
+
+      $heater = array();
+
+      $status = file_get_contents(STATUS_FILE_LOCATION);
+      $parts = explode(' ', $status[0]);
+
+      if($parts[0] == 'off'){
+        $heater['state'] = 'off';
+      } else if($parts[0] == 'on'){
+        $heater['state'] = 'on';
+        $heater['started'] = $parts[1];
+        $heater['timer'] = $parts[2];
+      }
+
+      $response['status'] = 'OK';
+      $response['heater'] = $heater;
 
     }
 
