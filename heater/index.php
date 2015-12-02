@@ -33,7 +33,8 @@ if(isset($r) && isset($r['a'])){
       $heater = array();
 
       $status = file_get_contents(STATUS_FILE_LOCATION);
-      $parts = explode(' ', $status[0]);
+
+      $parts = explode(' ', $status);
 
       if($parts[0] == 'off'){
         $heater['state'] = 'off';

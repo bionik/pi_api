@@ -18,7 +18,7 @@ if(isset($r) && isset($r['a'])){
 
     //readPin action
     if($a == 'getStop' && isset($r['stop'])){
-        $stop = (int)$r['stop'];
+        $stop = $r['stop'];
 
         //Execute request
         $result = file_get_contents(API_LOCATION.'&stopid='.$stop);
