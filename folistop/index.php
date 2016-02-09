@@ -1,6 +1,6 @@
 <?php
 # This API uses the Föli mobile bus stop page, which is parsed with phpQuery
-define('API_LOCATION', 'http://turku.seasam.com/nettinaytto/web?view=mobile&command=quicksearch');
+define('API_LOCATION', 'http://data.foli.fi/siri/sm/');
 
 //Set content type
 header('Content-Type: application/json');
@@ -12,6 +12,8 @@ require_once('phpQuery-onefile.php');
 $response = array();
 $r = $_REQUEST;
 
+$stops = json_decode(file_get_contents('stops.json'), true);
+
 //If a parameter is set
 if(isset($r) && isset($r['a'])){
     $a = $r['a'];
@@ -21,33 +23,23 @@ if(isset($r) && isset($r['a'])){
         $stop = $r['stop'];
 
         //Execute request
-        $result = file_get_contents(API_LOCATION.'&stopid='.$stop);
-
-        $doc = phpQuery::newDocument($result);
-        phpQuery::selectDocument($doc);
+        $result = json_decode(file_get_contents(API_LOCATION.$stop.'/pretty'), true);
 
         $data = array();
-        $i = 0;
 
-        $stop_name = trim(str_replace(array(chr(194).chr(160), "&nbsp;"), '', strip_tags(pq('#stopname')->html())));
+        if($result !== false && $result !== NULL){
 
-        foreach(pq('table.deptable tr') as $row) {
+            $stop_name = $stops[$stop]['stop_name'];
 
-            //Skip first
-            if($i == 0) {
-                $i++;
-                continue;
-            }
+            foreach ($result['result'] as $row) {
+                $temp = array();
 
-            $temp = array();
-            $temp['time'] = pq($row)->find('.timecol')->html();
-            $temp['line'] = pq($row)->find('.linecol')->html();
-            $temp['dest'] = pq($row)->find('.destcol')->html();
+                $temp['time'] = $row['aimedarrivaltime'];
+                $temp['line'] = $row['lineref'];
+                $temp['dest'] = $row['destinationdisplay'];
 
-            if($temp['time'] !== '' && $temp['line'] !== '' && $temp['dest'] !== ''){
                 $data[] = $temp;
             }
-
 
         }
 
