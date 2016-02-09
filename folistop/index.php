@@ -34,7 +34,7 @@ if(isset($r) && isset($r['a'])){
             foreach ($result['result'] as $row) {
                 $temp = array();
 
-                $temp['time'] = $row['aimedarrivaltime'];
+                $temp['time'] = date('H:i', (int)$row['aimedarrivaltime']);
                 $temp['line'] = $row['lineref'];
                 $temp['dest'] = $row['destinationdisplay'];
 
