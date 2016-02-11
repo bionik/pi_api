@@ -18,7 +18,7 @@ if(isset($r) && isset($r['a'])){
 
     //readPin action
     if($a == 'getStop' && isset($r['stop'])){
-        $stop = ucwords($r['stop']);
+        $stop = strtoupper($r['stop']);
 
         //Execute request
         $result = json_decode(file_get_contents(API_LOCATION.$stop.'/pretty'), true);
