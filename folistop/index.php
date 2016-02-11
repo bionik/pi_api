@@ -27,9 +27,9 @@ if(isset($r) && isset($r['a'])){
 
         $data = array();
 
-        if($result !== false && $result !== NULL){
+        $stop_name = $stops[$stop]['stop_name'];
 
-            $stop_name = $stops[$stop]['stop_name'];
+        if($result !== false && $result !== NULL){
 
             foreach ($result['result'] as $row) {
                 $temp = array();
