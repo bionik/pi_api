@@ -6,8 +6,6 @@ define('API_LOCATION', 'http://data.foli.fi/siri/sm/');
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-require_once('phpQuery-onefile.php');
-
 //Response array and shorthand for request
 $response = array();
 $r = $_REQUEST;
@@ -20,7 +18,7 @@ if(isset($r) && isset($r['a'])){
 
     //readPin action
     if($a == 'getStop' && isset($r['stop'])){
-        $stop = $r['stop'];
+        $stop = ucwords($r['stop']);
 
         //Execute request
         $result = json_decode(file_get_contents(API_LOCATION.$stop.'/pretty'), true);
