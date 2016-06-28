@@ -1,7 +1,7 @@
 <?php
 # This API uses the WiringPi GPIO interface. Info here: http://wiringpi.com/the-gpio-utility/
 # The line below points to the gpio utility installed together with WiringPi.
-define('GPIO_LOCATION', '/usr/local/bin/gpio');
+define('GPIO_LOCATION', '/usr/bin/gpio');
 
 //Set content type
 header('Content-Type: application/json');

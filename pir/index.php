@@ -1,6 +1,5 @@
 <?php
-# Controls heater
-define('STATUS_FILE_LOCATION', '/home/late/dev/pir/status.txt');
+define('STATUS_FILE_LOCATION', '/home/late/dev/pir/status/status.txt');
 
 //Set content type
 header('Content-Type: application/json');
@@ -22,7 +21,12 @@ if(isset($r) && isset($r['a'])){
 
       $response['status'] = 'OK';
       $response['timestamp'] = $status;
-      $response['time'] = date('H:i \o\n l', (int)$status);
+      if((int)$status == 0){
+        $response['time'] = "the beginning of time";
+      } else {
+        $response['time'] = date('H:i \o\n l', (int)$status);
+      }
+
     }
 
 }
